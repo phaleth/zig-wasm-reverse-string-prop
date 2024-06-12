@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
 
     const exe = b.addExecutable(.{
         .name = "json",
-        .root_source_file = .{ .path = "json.zig" },
+        .root_source_file = b.path("json.zig"),
         .target = target,
         .optimize = optimize,
     });

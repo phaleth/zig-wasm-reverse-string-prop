@@ -14,21 +14,24 @@ export fn reverseNames(s: [*]u8, length: usize, capacity: usize) i32 {
     defer parsed.deinit();
     const people = parsed.value;
 
-    var str = zigstr.fromConstBytes(walloc, "") catch return -2;
+    const data = zigstr.Data.init(walloc) catch return -2;
+    defer data.deinit();
+
+    var str = zigstr.fromConstBytes(walloc, &data, "") catch return -3;
     defer str.deinit();
     for (people) |x| {
-        str.reset(x.name) catch return -3;
-        str.reverse() catch return -4;
+        str.reset(x.name) catch return -4;
+        str.reverse() catch return -5;
         @memcpy(x.name, str.bytes());
     }
 
     var output = std.ArrayList(u8).init(walloc);
     defer output.deinit();
-    std.json.stringify(people, .{}, output.writer()) catch return -5;
+    std.json.stringify(people, .{}, output.writer()) catch return -6;
 
     const outputLength = output.items.len;
     if (outputLength > capacity) {
-        return -6;
+        return -7;
     }
     @memcpy(s[0..outputLength], output.items);
     return @as(i32, @intCast(outputLength));

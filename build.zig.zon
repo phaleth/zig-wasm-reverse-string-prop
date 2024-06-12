@@ -4,8 +4,8 @@
     .paths = .{""},
     .dependencies = .{
         .zigstr = .{
-            .url = "https://codeberg.org/dude_the_builder/zigstr/archive/main.tar.gz",
-            .hash = "1220344cc841846a5617f95645c4b6401fa8b05b005dd9e83a0ad39b096ac24f0b1a",
+            .url = "https://codeberg.org/dude_the_builder/zigstr/archive/v0.13.1.tar.gz",
+            .hash = "12202028bdd617e45b197ad5250ec3b952567aaf65fc8ea9176eab974729a0e15a47",
         },
     },
 }

@@ -5,4 +5,4 @@ Example of passing a list of arbitrary size containing objects to WASM module, m
 - [Using Zig with WebAssembly](https://blog.mjgrzymek.com/blog/zigwasm)
 
 ### Prerequisites
-- `zig version 0.12.0-dev.3533+e5d900268`
+- `zig version 0.13.0`
